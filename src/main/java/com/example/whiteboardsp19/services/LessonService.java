@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.whiteboardsp19.dataModel.Course;
 import com.example.whiteboardsp19.dataModel.Lesson;
 import com.example.whiteboardsp19.dataModel.Module;
 import com.example.whiteboardsp19.dataModel.User;
 
+@RestController
 public class LessonService {
 
 	public LessonService() {
