@@ -6,7 +6,16 @@ import java.util.List;
 public class Module {
 
 	private List<Lesson> chapters;
+	private int id;
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Module() {
 		this.chapters = new ArrayList<>();
 	}
