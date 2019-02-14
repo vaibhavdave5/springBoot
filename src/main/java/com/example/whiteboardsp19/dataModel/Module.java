@@ -20,11 +20,11 @@ public class Module {
 		this.chapters = new ArrayList<>();
 	}
 
-	public List<Lesson> getChapters() {
+	public List<Lesson> getLessons() {
 		return chapters;
 	}
 
-	public void setChapters(List<Lesson> chapters) {
+	public void setLessons(List<Lesson> chapters) {
 		this.chapters = chapters;
 	}
 	

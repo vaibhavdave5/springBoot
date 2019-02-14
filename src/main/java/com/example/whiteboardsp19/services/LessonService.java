@@ -1,62 +1,103 @@
 package com.example.whiteboardsp19.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.example.whiteboardsp19.dataModel.Course;
 import com.example.whiteboardsp19.dataModel.Lesson;
+import com.example.whiteboardsp19.dataModel.Module;
 import com.example.whiteboardsp19.dataModel.User;
 
 public class LessonService {
 
-	
-	
 	public LessonService() {
+	}
 
+	@DeleteMapping("/api/lesson/{lid}")
+	public List<Lesson> deleteLesson(@PathVariable("lid") int lid, HttpSession session) {
+		User fac = (User) session.getAttribute("user");
+		List<Course> courses = fac.getCourses();
+		for (Course course : courses) {
+			for (Module module : course.getModules()) {
+				for (int i = 0; i < module.getLessons().size(); i++) {
+					if (module.getLessons().get(i).getId() == lid) {
+						module.getLessons().removeIf(p -> p.getId() == lid);
+						return module.getLessons();
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	@PutMapping("/api/lesson/{lid}")
+	public Lesson updateLesson(@PathVariable("lid") int lid, @RequestBody Lesson lesson, HttpSession session) {
+		User fac = (User) session.getAttribute("user");
+		List<Course> courses = fac.getCourses();
+		for (Course course : courses) {
+			for (Module module : course.getModules()) {
+				for (int i = 0; i < module.getLessons().size(); i++) {
+					if (module.getLessons().get(i).getId() == lid) {
+						module.getLessons().set(i, lesson);
+						return lesson;
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	@GetMapping("/api/lesson/{lid}")
+	public Lesson findLessonById(@PathVariable("lid") int lid, HttpSession session) {
+		User fac = (User) session.getAttribute("user");
+		List<Course> courses = fac.getCourses();
+		for (Course course : courses) {
+			for (Module module : course.getModules()) {
+				for (Lesson lesson : module.getLessons()) {
+					if (lesson.getId() == lid) {
+						return lesson;
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	@GetMapping("/api/module/{mid}/lesson")
+	public List<Lesson> findAllLessons(@PathVariable("mid") int mid, HttpSession session) {
+		User fac = (User) session.getAttribute("user");
+		List<Course> courses = fac.getCourses();
+		for (Course course : courses) {
+			for (Module module : course.getModules()) {
+				if (module.getId() == mid) {
+					return module.getLessons();
+				}
+			}
+		}
+		return null;
 	}
 
 	@PostMapping("/api/module/{mid}/lesson")
-	public void createLesson(@PathVariable int mid, @RequestBody Lesson lesson) {
-		
-	}
+	public void createLesson(@PathVariable int mid, @RequestBody Lesson lesson, HttpSession session) {
 
-	@PostMapping("/api/profile")
-	public User profile() {
-		return this.currentUser;
-	}
+		User fac = (User) session.getAttribute("user");
+		List<Course> courses = fac.getCourses();
 
-	@PostMapping("/api/login")
-	public User login(@RequestBody User user) {
-		if (this.registerUser.contains(user)) {
-			this.currentUser = user;
-		}
-		return this.currentUser;
-	}
-
-	@PostMapping("/api/logout")
-	public void logout() {
-		this.currentUser = null;
-	}
-
-	@GetMapping("/api/users")
-	public List<User> findAllUsers() {
-		return this.registerUser;
-	}
-
-	@GetMapping("/api/user/{userId}")
-	public User findUserById(@PathVariable("userId") int id) {
-
-		for (User user : registerUser) {
-			if (user.getId() == id) {
-				return user;
+		for (Course course : courses) {
+			for (Module module : course.getModules()) {
+				if (module.getId() == mid) {
+					module.getLessons().add(lesson);
+				}
 			}
 		}
-
-		return null;
 	}
 
 }

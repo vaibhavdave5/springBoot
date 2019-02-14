@@ -6,7 +6,16 @@ import java.util.List;
 public class Lesson {
 	
 	private List<Topic> topics;
+	private int id;
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Lesson() {
 		this.topics = new ArrayList<>();
 	}
