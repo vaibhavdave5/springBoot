@@ -55,6 +55,7 @@ public class UserService {
 	@PostMapping("/api/logout")
 	public void logout(HttpSession session) {
 		this.currentUser = null;
+		session.invalidate();
 	}
 
 	@GetMapping("/api/users")
@@ -70,7 +71,6 @@ public class UserService {
 				return user;
 			}
 		}
-
 		return null;
 	}
 

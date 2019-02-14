@@ -6,7 +6,16 @@ import java.util.List;
 public class Course {
 	private List<Module> modules;
 	private List<Section> sections;
+	private int id;
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public List<Section> getSections() {
 		return sections;
 	}

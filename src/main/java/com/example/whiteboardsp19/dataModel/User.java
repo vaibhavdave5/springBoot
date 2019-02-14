@@ -1,5 +1,8 @@
 package com.example.whiteboardsp19.dataModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This object represents an abstract representation of User Object
  *  
@@ -13,8 +16,11 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String role;
+	private List<Course> courses;
 	
-	public User() {}
+	public User() {
+		courses = new ArrayList<>();
+	}
 	
 	public User(Long id, 
 				String username,
@@ -63,6 +69,14 @@ public class User {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
 	}
 	
 	@Override
