@@ -7,14 +7,26 @@ public class Course {
 	private int id;
 	private List<Module> modules;
 	private List<Section> sections;
+	private String title;
 	
 	
 	public Course() {
 		modules = new ArrayList<>();
 		sections = new ArrayList<>();
+		title = "New title";
 	}
 
 	
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
 	public int getId() {
 		return id;
 	}
