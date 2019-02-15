@@ -47,7 +47,7 @@ public class ModuleService {
 	}
 	
 	@PutMapping("/api/modules/{mid}")
-	public Module updateModule(@PathVariable int mid, Module module, HttpSession session) {
+	public Module updateModule(@PathVariable int mid, @RequestBody Module module, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 		for (Course course1 : courses) {
