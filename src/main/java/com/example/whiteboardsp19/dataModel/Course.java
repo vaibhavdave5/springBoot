@@ -4,9 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
+	private int id;
 	private List<Module> modules;
 	private List<Section> sections;
-	private int id;
+	
+	
+	public Course() {
+		modules = new ArrayList<>();
+		sections = new ArrayList<>();
+	}
+
 	
 	public int getId() {
 		return id;
@@ -24,10 +31,7 @@ public class Course {
 		this.sections = sections;
 	}
 
-	public Course() {
-		modules = new ArrayList<>();
-	}
-
+	
 	public List<Module> getModules() {
 		return modules;
 	}

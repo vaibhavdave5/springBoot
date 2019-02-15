@@ -22,7 +22,7 @@ import java.util.*;
  *
  */
 @RestController
-@CrossOrigin(origins = "https://dry-basin-78130.herokuapp.com/", allowCredentials = "true", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
 public class UserService {
 	private List<User> registerUser;
 	private User currentUser;

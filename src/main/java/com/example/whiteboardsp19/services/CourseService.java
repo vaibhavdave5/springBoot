@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.whiteboardsp19.dataModel.Course;
@@ -23,7 +22,7 @@ public class CourseService {
 	}
 	
 	@PostMapping("/api/courses")
-	public void createCourse(@RequestParam Course course, HttpSession session) {
+	public void createCourse(@RequestBody Course course, HttpSession session) {
 		User fac = (User)session.getAttribute("user");
 		fac.getCourses().add(course);
 	}
