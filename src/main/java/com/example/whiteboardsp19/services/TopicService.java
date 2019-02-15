@@ -1,6 +1,5 @@
 package com.example.whiteboardsp19.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -22,9 +21,6 @@ import com.example.whiteboardsp19.dataModel.User;
 @RestController
 public class TopicService {
 
-//DELETE /api/topic/{tid}
-//deleteTopic(tid)
-//Delete topic whose id is tid
 	public TopicService() {}
 
 	@DeleteMapping("/api/topic/{tid}")
