@@ -33,7 +33,7 @@ public class ModuleService {
 	}
 	
 	@DeleteMapping("/api/modules/{mid}")
-	public List<Module> deleteModule(@PathVariable int mid, HttpSession session){
+	public List<Module> deleteModule(@PathVariable long mid, HttpSession session){
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 		for (Course course1 : courses) {
@@ -48,7 +48,7 @@ public class ModuleService {
 	}
 	
 	@PutMapping("/api/modules/{mid}")
-	public Module updateModule(@PathVariable int mid, @RequestBody Module module, HttpSession session) {
+	public Module updateModule(@PathVariable long mid, @RequestBody Module module, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 		for (Course course1 : courses) {
@@ -63,7 +63,7 @@ public class ModuleService {
 	}
 
 	@GetMapping("/api/modules/{mid}")
-	public Module findModuleById(@PathVariable int mid, HttpSession session) {
+	public Module findModuleById(@PathVariable long mid, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 		for (Course course : courses) {
@@ -77,7 +77,7 @@ public class ModuleService {
 	}
 
 	@PostMapping("/api/courses/{cid}/modules")
-	public List<Module> createModule(@PathVariable int cid, @RequestBody Module module, HttpSession session) {
+	public List<Module> createModule(@PathVariable long cid, @RequestBody Module module, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 		for (Course course : courses) {
@@ -90,7 +90,7 @@ public class ModuleService {
 	}
 
 	@GetMapping("/api/course/{cid}/modules")
-	public List<Module> findAllModules(@PathVariable int cid, HttpSession session) {
+	public List<Module> findAllModules(@PathVariable long cid, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 		for (Course course : courses) {

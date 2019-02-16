@@ -26,7 +26,7 @@ public class LessonService {
 	}
 
 	@DeleteMapping("/api/lesson/{lid}")
-	public List<Lesson> deleteLesson(@PathVariable("lid") int lid, HttpSession session) {
+	public List<Lesson> deleteLesson(@PathVariable("lid") long lid, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 		for (Course course : courses) {
@@ -43,7 +43,7 @@ public class LessonService {
 	}
 
 	@PutMapping("/api/lesson/{lid}")
-	public Lesson updateLesson(@PathVariable("lid") int lid, @RequestBody Lesson lesson, HttpSession session) {
+	public Lesson updateLesson(@PathVariable("lid") long lid, @RequestBody Lesson lesson, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 		for (Course course : courses) {
@@ -60,7 +60,7 @@ public class LessonService {
 	}
 
 	@GetMapping("/api/lesson/{lid}")
-	public Lesson findLessonById(@PathVariable("lid") int lid, HttpSession session) {
+	public Lesson findLessonById(@PathVariable("lid") long lid, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 		for (Course course : courses) {
@@ -76,7 +76,7 @@ public class LessonService {
 	}
 
 	@GetMapping("/api/module/{mid}/lesson")
-	public List<Lesson> findAllLessons(@PathVariable("mid") int mid, HttpSession session) {
+	public List<Lesson> findAllLessons(@PathVariable("mid") long mid, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 		for (Course course : courses) {
@@ -90,7 +90,7 @@ public class LessonService {
 	}
 
 	@PostMapping("/api/module/{mid}/lesson")
-	public void createLesson(@PathVariable int mid, @RequestBody Lesson lesson, HttpSession session) {
+	public void createLesson(@PathVariable long mid, @RequestBody Lesson lesson, HttpSession session) {
 
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();

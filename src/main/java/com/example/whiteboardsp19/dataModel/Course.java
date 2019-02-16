@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
-	private int id;
+	private long id;
 	private List<Module> modules;
 	private List<Section> sections;
 	private String title;
@@ -27,11 +27,11 @@ public class Course {
 	}
 
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

@@ -68,7 +68,7 @@ public class UserService {
 	}
 
 	@GetMapping("/api/user/{userId}")
-	public User findUserById(@PathVariable("userId") int id, HttpSession session) {
+	public User findUserById(@PathVariable("userId") long id, HttpSession session) {
 
 		for (User user : registerUser) {
 			if (user.getId() == id) {

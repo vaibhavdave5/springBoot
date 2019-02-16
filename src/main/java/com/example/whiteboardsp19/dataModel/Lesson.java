@@ -6,18 +6,28 @@ import java.util.List;
 public class Lesson {
 	
 	private List<Topic> topics;
-	private int id;
+	private long id;
+	private String title;
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setId(long id) {
 		this.id = id;
 	}
 
 	public Lesson() {
 		this.topics = new ArrayList<>();
+		title = "New Lesson";
 	}
 
 	public List<Topic> getTopics() {

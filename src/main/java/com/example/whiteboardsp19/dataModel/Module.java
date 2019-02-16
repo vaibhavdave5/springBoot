@@ -5,27 +5,39 @@ import java.util.List;
 
 public class Module {
 
-	private List<Lesson> chapters;
-	private int id;
+	private List<Lesson> lessons;
+	public List<Lesson> getLessons() {
+		return lessons;
+	}
+
+	public void setLessons(List<Lesson> lessons) {
+		this.lessons = lessons;
+	}
+
+	private long id;
+	private String title;
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setId(long id) {
 		this.id = id;
 	}
 
 	public Module() {
-		this.chapters = new ArrayList<>();
+		this.lessons = new ArrayList<>();
+		this.title = "New Module";
 	}
 
-	public List<Lesson> getLessons() {
-		return chapters;
-	}
-
-	public void setLessons(List<Lesson> chapters) {
-		this.chapters = chapters;
-	}
+	
 	
 }

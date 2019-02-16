@@ -26,7 +26,7 @@ public class TopicService {
 	public TopicService() {}
 
 	@DeleteMapping("/api/topic/{tid}")
-	public List<Topic> deleteTopic(@PathVariable int tid,HttpSession session) {
+	public List<Topic> deleteTopic(@PathVariable long tid,HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 
@@ -42,7 +42,7 @@ public class TopicService {
 	
 	
 	@PutMapping("/api/topic/{tid}")
-	public Topic updateTopic(@PathVariable int tid, Topic topic, HttpSession session) {
+	public Topic updateTopic(@PathVariable long tid, Topic topic, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 
@@ -62,7 +62,7 @@ public class TopicService {
 	}
 	
 	@GetMapping("/api/topic/{tid}")
-	public Topic findTopicById(@PathVariable int tid, HttpSession session){
+	public Topic findTopicById(@PathVariable long tid, HttpSession session){
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 
@@ -83,7 +83,7 @@ public class TopicService {
 	
 	
 	@GetMapping("/api/lesson/{lid}/topic")
-	public List<Topic> findAllTopics(@PathVariable int lid, HttpSession session){
+	public List<Topic> findAllTopics(@PathVariable long lid, HttpSession session){
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 
@@ -104,7 +104,7 @@ public class TopicService {
 	
 	
 	@PostMapping("/api/lesson/{lid}/topic")
-	public void createTopic(@PathVariable int lid, 
+	public void createTopic(@PathVariable long lid, 
 							@RequestBody Topic topic, 
 							HttpSession session) {
 

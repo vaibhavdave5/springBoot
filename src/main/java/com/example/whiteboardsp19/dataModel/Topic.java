@@ -5,26 +5,36 @@ import java.util.ArrayList;
 
 public class Topic {
 
-	private List<Widget> widgetList;
-	private int id;
-
-	public int getId() {
+	private List<Widget> widgets;
+	private long id;
+	private String title;
+	
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
 	public Topic() {
-		widgetList = new ArrayList<>();
+		widgets = new ArrayList<>();
+		title = "New Topic";
 	}
 
-	public List<Widget> getWidgetList() {
-		return widgetList;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setWidgetList(List<Widget> widgetList) {
-		this.widgetList = widgetList;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public List<Widget> getWidgets() {
+		return widgets;
+	}
+
+	public void setWidgets(List<Widget> widgets) {
+		this.widgets = widgets;
 	}
 }
