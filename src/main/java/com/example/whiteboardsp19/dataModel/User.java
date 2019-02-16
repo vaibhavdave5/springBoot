@@ -29,12 +29,14 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.role = role;
+		courses = new ArrayList<>();
 	}
 
 	public User(String username, String password) {
 		this.id = new Date().getTime();
 		this.username = username;
 		this.password = password;
+		courses = new ArrayList<>();
 	}
 
 	public String getRole() {

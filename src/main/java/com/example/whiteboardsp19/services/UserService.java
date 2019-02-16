@@ -52,6 +52,7 @@ public class UserService {
 			this.currentUser = user;
 			session.setAttribute("user", user);
 		}
+		System.out.println(session.getAttribute("user")+"1dggfd");
 		return this.currentUser;
 	}
 

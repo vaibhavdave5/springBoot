@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.example.whiteboardsp19.dataModel.Course;
 import com.example.whiteboardsp19.dataModel.User;
 
 @RestController
+@CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
 public class CourseService {
 
 	public CourseService() {
@@ -30,6 +32,7 @@ public class CourseService {
 	@GetMapping("/api/courses")
 	public List<Course> findAllCourses(HttpSession session) {
 		User fac = (User)session.getAttribute("user");
+		System.out.println(session.getAttribute("user")+"2ffffff");
 		return fac.getCourses();
 	}
 	
