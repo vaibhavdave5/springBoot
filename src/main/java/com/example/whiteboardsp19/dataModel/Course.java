@@ -16,7 +16,17 @@ public class Course {
 		title = "New title";
 	}
 
-	
+
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
 	public String getTitle() {
 		return title;
 	}
@@ -26,14 +36,6 @@ public class Course {
 		this.title = title;
 	}
 
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public List<Section> getSections() {
 		return sections;

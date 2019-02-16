@@ -104,7 +104,7 @@ public class TopicService {
 	
 	
 	@PostMapping("/api/lesson/{lid}/topic")
-	public void createTopic(@PathVariable long lid, 
+	public boolean createTopic(@PathVariable long lid, 
 							@RequestBody Topic topic, 
 							HttpSession session) {
 
@@ -120,6 +120,7 @@ public class TopicService {
 				}
 			}
 		}
+		return true;
 	}
 
 

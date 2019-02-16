@@ -1,5 +1,7 @@
 package com.example.whiteboardsp19.services;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.whiteboardsp19.dataModel.Course;
 import com.example.whiteboardsp19.dataModel.Lesson;
 import com.example.whiteboardsp19.dataModel.Module;
+import com.example.whiteboardsp19.dataModel.Topic;
 import com.example.whiteboardsp19.dataModel.User;
 
 @RestController
@@ -92,13 +95,24 @@ public class LessonService {
 	@PostMapping("/api/module/{mid}/lesson")
 	public void createLesson(@PathVariable long mid, @RequestBody Lesson lesson, HttpSession session) {
 
+		Lesson lesson2 = new Lesson();
+		
+		lesson2.setId(new Date().getTime()+2);
+		
+		List<Topic> topics = new ArrayList<>();
+		lesson2.setTopics(topics);
+		
+		Topic topic = new Topic();
+		topic.setId(new Date().getTime()+3);
+		topics.add(topic);
+		
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 
 		for (Course course : courses) {
 			for (Module module : course.getModules()) {
 				if (module.getId() == mid) {
-					module.getLessons().add(lesson);
+					module.getLessons().add(lesson2);
 				}
 			}
 		}

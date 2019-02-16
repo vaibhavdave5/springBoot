@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.whiteboardsp19.dataModel.Course;
+import com.example.whiteboardsp19.dataModel.Lesson;
 import com.example.whiteboardsp19.dataModel.User;
 import com.example.whiteboardsp19.dataModel.Module;
+import com.example.whiteboardsp19.dataModel.Topic;
 
 import java.util.*;
 
@@ -33,14 +35,14 @@ public class ModuleService {
 	}
 	
 	@DeleteMapping("/api/modules/{mid}")
-	public List<Module> deleteModule(@PathVariable long mid, HttpSession session){
+	public Course deleteModule(@PathVariable long mid, HttpSession session){
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
 		for (Course course1 : courses) {
 			for (int i=0 ; i < course1.getModules().size(); i++) {
 				if (course1.getModules().get(i).getId() == mid) {
 					course1.getModules().removeIf(p -> p.getId() == mid);
-					return course1.getModules();
+					return course1;
 				}
 			}
 		}
@@ -77,9 +79,28 @@ public class ModuleService {
 	}
 
 	@PostMapping("/api/courses/{cid}/modules")
-	public List<Module> createModule(@PathVariable long cid, @RequestBody Module module, HttpSession session) {
+	public List<Module> createModule(@PathVariable long cid, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
+		Module module = new Module();
+		
+		module.setId(new Date().getTime()+1);
+		
+		List<Lesson> lessons = new ArrayList<>();
+		module.setLessons(lessons);
+		
+		Lesson lesson = new Lesson();
+		lessons.add(lesson);
+		
+		lesson.setId(new Date().getTime()+2);
+		
+		List<Topic> topics = new ArrayList<>();
+		lesson.setTopics(topics);
+		
+		Topic topic = new Topic();
+		topic.setId(new Date().getTime()+3);
+		topics.add(topic);
+		
 		for (Course course : courses) {
 			if (course.getId() == cid) {
 				course.getModules().add(module);
