@@ -1,5 +1,6 @@
 package com.example.whiteboardsp19.services;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -42,16 +43,17 @@ public class TopicService {
 	
 	
 	@PutMapping("/api/topic/{tid}")
-	public Topic updateTopic(@PathVariable long tid, Topic topic, HttpSession session) {
+	public Topic updateTopic(@PathVariable long tid,@RequestBody Topic topic, HttpSession session) {
 		User fac = (User) session.getAttribute("user");
 		List<Course> courses = fac.getCourses();
-
+		System.out.println(tid);
 		for (Course course : courses) {
 			for (Module module : course.getModules()) {
 				for(Lesson lesson1 : module.getLessons()) {
 					for(int i=0; i < lesson1.getTopics().size(); i++) {	
 						if(lesson1.getTopics().get(i).getId() == tid) {
 							lesson1.getTopics().set(i, topic);
+							
 							return topic;
 						}
 					}
@@ -115,6 +117,7 @@ public class TopicService {
 			for (Module module : course.getModules()) {
 				for(Lesson lesson : module.getLessons()) {
 					if(lesson.getId() == lid) {
+						topic.setId(new Date().getTime());
 						lesson.getTopics().add(topic);
 					}
 				}

@@ -54,6 +54,7 @@ public class LessonService {
 				for (int i = 0; i < module.getLessons().size(); i++) {
 					if (module.getLessons().get(i).getId() == lid) {
 						module.getLessons().set(i, lesson);
+						System.out.println(module.getLessons().get(i).getTitle());
 						return lesson;
 					}
 				}

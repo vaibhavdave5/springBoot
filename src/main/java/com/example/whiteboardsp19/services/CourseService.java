@@ -64,7 +64,6 @@ public class CourseService {
 	@GetMapping("/api/courses")
 	public List<Course> findAllCourses(HttpSession session) {
 		User fac = (User)session.getAttribute("user");
-		System.out.println(session.getAttribute("user")+"2ffffff");
 		return fac.getCourses();
 	}
 	

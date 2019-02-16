@@ -2,6 +2,7 @@ package com.example.whiteboardsp19.dataModel;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Topic {
 
@@ -20,6 +21,7 @@ public class Topic {
 	public Topic() {
 		widgets = new ArrayList<>();
 		title = "New Topic";
+		id = new Date().getTime();
 	}
 
 	public String getTitle() {
