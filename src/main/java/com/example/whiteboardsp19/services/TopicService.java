@@ -20,8 +20,8 @@ import com.example.whiteboardsp19.dataModel.Module;
 import com.example.whiteboardsp19.dataModel.Topic;
 import com.example.whiteboardsp19.dataModel.User;
 
-@RestController
 @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
+@RestController
 public class TopicService {
 
 	public TopicService() {}
