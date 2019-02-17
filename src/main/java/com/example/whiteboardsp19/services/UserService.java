@@ -41,6 +41,18 @@ public class UserService {
 		return user;
 	}
 
+	@PostMapping("/api/update")
+	public User updateUser(@RequestBody User user ,HttpSession session) {
+		session.setAttribute("user", user);
+		return user;
+	}
+
+	@GetMapping("/api/getUser")
+	public boolean getUser(HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		return user != null;
+	}
+	
 	@PostMapping("/api/profile")
 	public User profile(HttpSession session) {
 		return this.currentUser;
