@@ -21,7 +21,7 @@ import com.example.whiteboardsp19.dataModel.Module;
 import com.example.whiteboardsp19.dataModel.Topic;
 import com.example.whiteboardsp19.dataModel.User;
 
-@CrossOrigin(origins = "*", allowCredentials = "true")
+@CrossOrigin(allowCredentials = "true")
 @RestController
 public class LessonService {
 
