@@ -20,7 +20,7 @@ import com.example.whiteboardsp19.dataModel.Course;
 import com.example.whiteboardsp19.dataModel.Lesson;
 import com.example.whiteboardsp19.dataModel.User;
 
-@CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowCredentials = "true")
 @RestController
 public class CourseService {
 

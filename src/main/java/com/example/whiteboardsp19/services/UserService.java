@@ -21,7 +21,7 @@ import java.util.*;
  * @author vaibh
  *
  */
-@CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowCredentials = "true")
 @RestController
 public class UserService {
 	private List<User> registerUser;

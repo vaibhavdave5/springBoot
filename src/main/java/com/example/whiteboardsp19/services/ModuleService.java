@@ -27,7 +27,7 @@ import java.util.*;
  *
  */
 
-@CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowCredentials = "true")
 @RestController
 public class ModuleService {
 
