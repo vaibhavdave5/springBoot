@@ -30,6 +30,7 @@ public class UserService {
 	public UserService() {
 		registerUser = new ArrayList<>();
 		registerUser.add(new User("John", "Ford"));
+		registerUser.add(new User("John", "Missy"));
 
 	}
 
