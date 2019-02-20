@@ -21,7 +21,7 @@ import java.util.*;
  * @author vaibh
  *
  */
-@CrossOrigin(allowCredentials = "true")
+@CrossOrigin(origins="*", allowCredentials = "true")
 @RestController
 public class UserService {
 	private List<User> registerUser;
@@ -49,9 +49,9 @@ public class UserService {
 	}
 
 	@GetMapping("/api/getUser")
-	public boolean getUser(HttpSession session) {
+	public User getUser(HttpSession session) {
 		User user = (User)session.getAttribute("user");
-		return user != null;
+		return user;
 	}
 	
 	@PostMapping("/api/profile")
